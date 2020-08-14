@@ -8,7 +8,7 @@ with open('HISTORY.md') as history_file:
 
 setup(
     name='b_cfn_lambda_integration',
-    version='0.0.1',
+    version='0.0.2',
     license='Apache License 2.0',
     packages=find_packages(exclude=[
         # Exclude virtual environment.
@@ -23,8 +23,6 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     install_requires=[
-        "aws-cdk.aws-lambda>=1.54.0,<2.0.0",
-        "aws-cdk.aws-apigateway>=1.54.0,<2.0.0",
         "aws-cdk.aws-apigatewayv2>=1.54.0,<2.0.0",
     ],
     author='Laimonas Sutkus',
