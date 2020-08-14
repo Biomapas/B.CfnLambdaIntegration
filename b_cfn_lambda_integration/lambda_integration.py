@@ -44,5 +44,6 @@ class LambdaIntegration(CfnIntegration):
             integration_type=integration_type,
             integration_method=integration_method,
             integration_uri=f'arn:aws:apigateway:{scope.region}:lambda:path/2015-03-31/functions/{fun_arn}/invocations',
+            payload_format_version='1.0',
             **kwargs
         )
