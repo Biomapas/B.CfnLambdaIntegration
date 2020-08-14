@@ -10,8 +10,8 @@ class LambdaIntegration(CfnIntegration):
             scope: Stack,
             integration_name: str,
             api: Any,
-            integration_method: str,
             lambda_function: Any,
+            integration_method: str = 'POST',
             integration_type: str = 'AWS_PROXY',
             connection_type='INTERNET',
             **kwargs
