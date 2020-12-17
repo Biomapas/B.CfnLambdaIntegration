@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.7
+* Add tests to the pipeline.
+
 ### 0.0.6
 * Add ability to get a consistent hash from the integration class.
 
