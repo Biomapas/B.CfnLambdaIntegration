@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.8
+* Expose lambda function.
+
 ### 0.0.7
 * Add tests to the pipeline.
 

@@ -1,6 +1,7 @@
 import hashlib
-from typing import Any
+from typing import Any, Union
 from aws_cdk.aws_apigatewayv2 import CfnIntegration
+from aws_cdk.aws_lambda import IFunction, CfnFunction
 from aws_cdk.core import Stack
 
 
@@ -10,13 +11,14 @@ class LambdaIntegration(CfnIntegration):
             scope: Stack,
             integration_name: str,
             api: Any,
-            lambda_function: Any,
+            lambda_function: Union[IFunction, CfnFunction],
             integration_method: str = 'POST',
             integration_type: str = 'AWS_PROXY',
             connection_type='INTERNET',
             **kwargs
     ) -> None:
         self.__integration_name = integration_name
+        self.__lambda_function = lambda_function
         self.__integration_method = integration_method
         self.__integration_type = integration_type
         self.__connection_type = connection_type
@@ -52,6 +54,10 @@ class LambdaIntegration(CfnIntegration):
             payload_format_version='1.0',
             **kwargs
         )
+
+    @property
+    def function(self) -> Union[IFunction, CfnFunction]:
+        return self.__lambda_function
 
     @property
     def hash(self):
