@@ -28,6 +28,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "aws-cdk.aws-apigatewayv2>=1.54.0,<2.0.0",
+        'pytest>=6.0.0,<7.0.0',
     ],
     author='Laimonas Sutkus',
     author_email='laimonas.sutkus@biomapas.com',

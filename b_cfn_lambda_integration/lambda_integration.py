@@ -1,5 +1,5 @@
+import hashlib
 from typing import Any
-
 from aws_cdk.aws_apigatewayv2 import CfnIntegration
 from aws_cdk.core import Stack
 
@@ -16,6 +16,11 @@ class LambdaIntegration(CfnIntegration):
             connection_type='INTERNET',
             **kwargs
     ) -> None:
+        self.__integration_name = integration_name
+        self.__integration_method = integration_method
+        self.__integration_type = integration_type
+        self.__connection_type = connection_type
+
         try:
             # Works for higher level constructs.
             api_id = api.rest_api_id
@@ -47,3 +52,14 @@ class LambdaIntegration(CfnIntegration):
             payload_format_version='1.0',
             **kwargs
         )
+
+    @property
+    def hash(self):
+        hashable = (
+            self.__integration_name +
+            self.__integration_method +
+            self.__integration_type +
+            self.__connection_type
+        ).encode('utf-8')
+
+        return hashlib.sha256(hashable).hexdigest()

@@ -1,5 +1,8 @@
 # Release history
 
+### 0.0.6
+* Add ability to get a consistent hash from the integration class.
+
 ### 0.0.5
 * Add CI/CD pipelines.
 * Update History file.
