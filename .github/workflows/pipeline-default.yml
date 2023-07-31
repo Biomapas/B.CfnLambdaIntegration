@@ -25,4 +25,5 @@ jobs:
 
       - name: Test
         run: |
+          pip install -r b_cfn_lambda_integration_test/requirements.txt
           pytest b_cfn_lambda_integration_test/unit

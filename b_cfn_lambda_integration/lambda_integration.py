@@ -1,8 +1,9 @@
 import hashlib
 from typing import Any, Union
+
+from aws_cdk import Stack
 from aws_cdk.aws_apigatewayv2 import CfnIntegration
 from aws_cdk.aws_lambda import IFunction, CfnFunction
-from aws_cdk.core import Stack
 
 
 class LambdaIntegration(CfnIntegration):
@@ -62,10 +63,10 @@ class LambdaIntegration(CfnIntegration):
     @property
     def hash(self):
         hashable = (
-            self.__integration_name +
-            self.__integration_method +
-            self.__integration_type +
-            self.__connection_type
+                self.__integration_name +
+                self.__integration_method +
+                self.__integration_type +
+                self.__connection_type
         ).encode('utf-8')
 
         return hashlib.sha256(hashable).hexdigest()
