@@ -1,5 +1,10 @@
 # Release history
 
+### 1.0.0
+* Upgrade CDK support from v1 to v2.
+* Upgrade GitHub pipelines checkout version.
+* Upgrade biomapas/cicd-full image version to 5.0.0.
+
 ### 0.0.8
 * Expose lambda function.
 

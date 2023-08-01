@@ -1,6 +1,6 @@
+from aws_cdk import Stack, App
 from aws_cdk.aws_apigatewayv2 import CfnApi
 from aws_cdk.aws_lambda import Function, Code, Runtime
-from aws_cdk.core import Stack, App
 
 from b_cfn_lambda_integration.lambda_integration import LambdaIntegration
 
@@ -22,7 +22,7 @@ def test_FUNC_hash_WITH_valid_parameters_EXPECT_hash_created():
             'TestLambdaFunction',
             code=Code.from_inline('def handler(*args, **kwargs): return 123'),
             handler='index.handler',
-            runtime=Runtime.PYTHON_3_6
+            runtime=Runtime.PYTHON_3_10
         )
     )
 

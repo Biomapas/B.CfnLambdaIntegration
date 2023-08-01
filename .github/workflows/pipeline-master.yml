@@ -12,10 +12,10 @@ on:
 jobs:
   install-test-build-push:
     runs-on: ubuntu-latest
-    container: biomapas/cicd-full:0.0.2
+    container: biomapas/cicd-full:5.0.0
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install
         run: |
@@ -25,6 +25,7 @@ jobs:
 
       - name: Test
         run: |
+          pip install -r b_cfn_lambda_integration_test/requirements.txt
           pytest b_cfn_lambda_integration_test/unit
 
       - name: Install
